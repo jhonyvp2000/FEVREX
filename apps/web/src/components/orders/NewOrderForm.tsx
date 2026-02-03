@@ -25,10 +25,13 @@ export function NewOrderForm({ accounts }: { accounts: Account[] }) {
     const originAccounts = accounts.filter(a => a.currency === (orderType === "BUY" ? "PEN" : "USD"));
     const destinationAccounts = accounts.filter(a => a.currency === (orderType === "BUY" ? "USD" : "PEN"));
 
+
+    const [state, action] = useFormState<any, FormData>(createOrder, null);
+
     return (
         <Card className="w-full max-w-2xl border-slate-700 bg-slate-900">
             <CardContent className="p-6">
-                <form action={createOrder}>
+                <form action={action}>
                     <input type="hidden" name="orderType" value={orderType} />
 
                     <div className="flex bg-slate-950 p-1 rounded-lg mb-6">
@@ -101,6 +104,8 @@ export function NewOrderForm({ accounts }: { accounts: Account[] }) {
                             )}
                         </div>
                     </div>
+
+                    {state?.error?.form && <p className="text-red-400 text-sm mb-4">{state.error.form}</p>}
 
                     <Button type="submit" className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold h-12 text-lg">
                         Crear Orden
