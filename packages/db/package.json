@@ -1,0 +1,24 @@
+{
+    "name": "@fevrex/db",
+    "version": "0.0.0",
+    "main": "./index.ts",
+    "exports": {
+        ".": "./index.ts"
+    },
+    "types": "./index.ts",
+    "license": "MIT",
+    "scripts": {
+        "generate": "drizzle-kit generate:pg",
+        "push": "drizzle-kit push:pg"
+    },
+    "dependencies": {
+        "drizzle-orm": "^0.29.0",
+        "postgres": "^3.4.0",
+        "zod": "^3.22.0"
+    },
+    "devDependencies": {
+        "drizzle-kit": "^0.20.0",
+        "dotenv": "^16.0.0",
+        "typescript": "^5.0.0"
+    }
+}
