@@ -5,6 +5,6 @@ const config: Config = {
     content: [
         "./src/**/*.{js,ts,jsx,tsx,mdx}",
     ],
-    presets: [sharedConfig],
+    presets: [sharedConfig as any],
 };
 export default config;
