@@ -77,7 +77,7 @@ export async function createOrder(prevState: any, formData: FormData) {
     redirect(`/dashboard/orders/${newOrderId}`);
 }
 
-export async function confirmPayment(orderId: string, formData: FormData) {
+export async function confirmPayment(orderId: string, prevState: any, formData: FormData) {
     const opNumber = formData.get("paymentProofRef") as string;
     if (!opNumber) return { error: "Operation number required" };
 

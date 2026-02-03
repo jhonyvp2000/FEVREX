@@ -2,8 +2,8 @@ import { auth } from "@/auth";
 import { db, orders, bankAccounts } from "@fevrex/db";
 import { eq } from "drizzle-orm";
 import { Navbar } from "@/components/layout/Navbar";
-import { Card, CardContent, CardHeader, CardTitle, Input, Button } from "@fevrex/ui";
-import { confirmPayment } from "@/actions/orders";
+import { Card, CardContent, CardHeader, CardTitle } from "@fevrex/ui";
+import { PaymentProofForm } from "./payment-form";
 import { notFound } from "next/navigation";
 
 export default async function OrderDetailPage({ params }: { params: { id: string } }) {
@@ -54,15 +54,7 @@ export default async function OrderDetailPage({ params }: { params: { id: string
                                     <p className="text-center text-xs text-slate-400 mt-1">Titular: FEVREX SAC - RUC: 20600000000</p>
                                 </div>
 
-                                <form action={confirmPayment.bind(null, order.id)} className="space-y-4 pt-4 border-t border-slate-700">
-                                    <div className="space-y-2">
-                                        <label className="font-bold">Ya realicé la transferencia</label>
-                                        <Input name="paymentProofRef" placeholder="Ingresa el Nro de Operación" required className="bg-slate-950 border-slate-700" />
-                                    </div>
-                                    <Button className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold">
-                                        Confirmar Pago
-                                    </Button>
-                                </form>
+                                <PaymentProofForm orderId={order.id} />
                             </div>
                         )}
 
