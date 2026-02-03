@@ -6,8 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle, Input, Button } from "@fevrex
 import { registerAction } from "@/actions/auth";
 import { Navbar } from "@/components/layout/Navbar";
 
+
+type State = {
+    error?: {
+        email?: string[];
+        password?: string[];
+        confirmPassword?: string[];
+        form?: string[];
+    };
+    success?: boolean;
+} | null;
+
 export default function RegisterPage() {
-    const [state, action] = useFormState(registerAction, null);
+    const [state, action] = useFormState<State, FormData>(registerAction, null);
 
     return (
         <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

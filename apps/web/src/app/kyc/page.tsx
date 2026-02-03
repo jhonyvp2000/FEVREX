@@ -5,8 +5,19 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Card, CardContent, CardHeader, CardTitle, Input, Button } from "@fevrex/ui";
 import { submitKYC } from "@/actions/kyc";
 
+
+type State = {
+    error?: {
+        firstName?: string[];
+        lastName?: string[];
+        documentNumber?: string[];
+        phone?: string[];
+        form?: string[];
+    };
+} | null;
+
 export default function KYCPage() {
-    const [state, action] = useFormState(submitKYC, null);
+    const [state, action] = useFormState<State, FormData>(submitKYC, null);
 
     return (
         <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

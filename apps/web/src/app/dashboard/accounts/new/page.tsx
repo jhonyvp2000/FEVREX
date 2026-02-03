@@ -5,8 +5,20 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Card, CardContent, CardHeader, CardTitle, Input, Button } from "@fevrex/ui";
 import { addBankAccount } from "@/actions/accounts";
 
+
+type State = {
+    error?: {
+        alias?: string[];
+        bankName?: string[];
+        currency?: string[];
+        accountNumber?: string[];
+        cci?: string[];
+        form?: string[];
+    };
+} | null;
+
 export default function NewAccountPage() {
-    const [state, action] = useFormState(addBankAccount, null);
+    const [state, action] = useFormState<State, FormData>(addBankAccount, null);
 
     return (
         <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">

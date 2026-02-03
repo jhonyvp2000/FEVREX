@@ -6,8 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle, Input, Button } from "@fevrex
 import { loginAction } from "@/actions/auth";
 import { Navbar } from "@/components/layout/Navbar";
 
+
+
+type State = {
+    error?: string;
+} | null | undefined;
+
 export default function LoginPage() {
-    const [state, action] = useFormState(loginAction, null);
+    const [state, action] = useFormState<State, FormData>(loginAction, null);
 
     return (
         <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
