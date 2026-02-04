@@ -1,14 +1,21 @@
 import Link from "next/link";
 import { Button } from "@fevrex/ui";
 
+import Image from "next/image";
+
 export function Navbar() {
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-slate-700 bg-slate-900/80 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60">
+        <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 <Link href="/" className="flex items-center space-x-2">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-amber-500 to-yellow-300 bg-clip-text text-transparent">
-                        FEVREX
-                    </span>
+                    <Image
+                        src="/logo-full.png"
+                        alt="Fevrex"
+                        width={120}
+                        height={40}
+                        className="h-10 w-auto object-contain"
+                        priority
+                    />
                 </Link>
                 <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
                     <Link href="/about" className="hover:text-amber-500 transition-colors">Nosotros</Link>
