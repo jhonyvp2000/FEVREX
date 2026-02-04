@@ -5,16 +5,13 @@ import { ShieldCheck, Clock, TrendingUp } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-background font-sans text-slate-50">
+    <div className="min-h-screen flex flex-col font-sans">
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         {/* Background Gradients */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl opacity-20 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500 rounded-full blur-[128px]" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[128px]" />
-        </div>
+
 
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           <div className="space-y-6 text-center lg:text-left">
